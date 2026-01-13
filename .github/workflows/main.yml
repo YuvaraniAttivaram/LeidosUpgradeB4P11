@@ -10,7 +10,7 @@ jobs:
 
       - name: Unzip the files
         # Replace 'my-project.zip' with your actual zip file name
-        run: unzip Testpackages.zip -d ./to_scan 
+        run: unzip Prod_TMS_Build4_061.zip -d ./to_scan 
 
       - name: Run OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
@@ -18,6 +18,9 @@ jobs:
           project: 'LeidosUpgradeB4P11'
           path: './to_scan' # This tells the scanner to look inside the unzipped folder
           format: 'HTML'
+          # Add this line to only fail on very high vulnerabilities
+          args: >
+            --failOnCVSS 9
           
       - name: Save the Security Report
         uses: actions/upload-artifact@v4
