@@ -10,7 +10,7 @@ jobs:
 
       - name: Unzip the files
         # Replace 'my-project.zip' with your actual zip file name
-        run: unzip Prod_TMS_Build4_061.zip -d ./to_scan 
+        run: unzip Prod_FrameWork_Build4_61.zip -d ./to_scan 
 
       - name: Run OWASP Dependency Check
         uses: dependency-check/Dependency-Check_Action@main
